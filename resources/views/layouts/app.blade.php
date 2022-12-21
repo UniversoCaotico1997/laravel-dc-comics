@@ -17,7 +17,7 @@
 
 <body>
     @include('partials.header')
-    <main class="py-5">
+    <main class="pt-5">
         @yield('content')
     </main>
     @include('partials.footer')
