@@ -13,7 +13,8 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        // dd(config('comics.comics'));
+        $comics = config('comics.comics');
     }
 
     /**
