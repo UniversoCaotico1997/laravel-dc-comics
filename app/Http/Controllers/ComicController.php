@@ -39,7 +39,28 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        return view('comics.store');
+        // dd($request->all());
+
+        // validazione dei vari campi
+        // $val_data = $request->validate([
+        //     'title' => 'required|min10|max:100'
+        // ]);
+
+        // dd($val_data);
+        //save new all date in database
+
+        $comic = new Comic();
+        $comic->title = $request['title'];
+        $comic->description = $request['description'];
+        $comic->thumb = $request['thumb'];
+        $comic->price = $request['price'];
+        $comic->series = $request['series'];
+        $comic->sale_date = $request['sale_date'];
+        $comic->type = $request['type'];
+        $comic->save();
+
+        //redirect 
+        return to_route('comics.index');
     }
 
     /**
