@@ -42,22 +42,33 @@ class ComicController extends Controller
         // dd($request->all());
 
         // validazione dei vari campi
-        // $val_data = $request->validate([
-        //     'title' => 'required|min10|max:100'
-        // ]);
+        $val_data = $request->validate([
+            'title' => 'required|min:10|max:50',
+            'description' => 'nullable|max:255',
+            'thumb' => 'nullable|max:255',
+            'price' => 'nullable|max:6',
+            'series' => 'nullable|max:50',
+            'sale_date' => 'nullable|max:15',
+            'type' => 'nullable|max:20',
+        ]);
 
         // dd($val_data);
-        //save new all date in database
+        $val_data = $this->validation($request->all());
 
-        $comic = new Comic();
-        $comic->title = $request['title'];
-        $comic->description = $request['description'];
-        $comic->thumb = $request['thumb'];
-        $comic->price = $request['price'];
-        $comic->series = $request['series'];
-        $comic->sale_date = $request['sale_date'];
-        $comic->type = $request['type'];
-        $comic->save();
+        $comic = Comic::create($val_data);
+
+
+
+        //save new all date in database
+        // $comic = new Comic();
+        // $comic->title = $request['title'];
+        // $comic->description = $request['description'];
+        // $comic->thumb = $request['thumb'];
+        // $comic->price = $request['price'];
+        // $comic->series = $request['series'];
+        // $comic->sale_date = $request['sale_date'];
+        // $comic->type = $request['type'];
+        // $comic->save();
 
         //redirect 
         return to_route('comics.index');

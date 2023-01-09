@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    @include('partials.errors')
     <form action="{{route('comics.store')}}" method="post" class="pb-4">
         @csrf
         <div class="mb-3">
@@ -12,32 +13,32 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label text-white">Description</label>
-            <textarea class="form-control" name="description" id="description" rows="4"></textarea>
+            <textarea class="form-control" name="description" id="description" rows="4">{{old('description')}}</textarea>
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label text-white">Thumb Comics</label>
-            <input type="text" name="thumb" id="thumb" class="form-control" placeholder="Thumb Comics" aria-describedby="helpId">
-            <small id="helpThumb" class="text-muted">Add Thumb Comics</small>
+            <input type="text" name="thumb" id="thumb" class="form-control" placeholder="Thumb Comics" aria-describedby="helpId" value="{{old('thumb')}}">
+            <small id=" helpThumb" class="text-muted">Add Thumb Comics</small>
         </div>
         <div class="mb-3">
             <label for="price" class="form-label text-white">Price</label>
-            <input type="text" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="helpId">
-            <small id="helpPrice" class="text-muted">Add Price</small>
+            <input type="text" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="helpId" value="{{old('price')}}">
+            <small id=" helpPrice" class="text-muted">Add Price</small>
         </div>
         <div class="mb-3">
             <label for="series" class="form-label text-white">Series</label>
-            <input type="text" name="series" id="series" class="form-control" placeholder="Series" aria-describedby="helpId">
-            <small id="helpSeries" class="text-muted">Add Series</small>
+            <input type="text" name="series" id="series" class="form-control" placeholder="Series" aria-describedby="helpId" value="{{old('series')}}">
+            <small id=" helpSeries" class="text-muted">Add Series</small>
         </div>
         <div class="mb-3">
             <label for="sale_date" class="form-label text-white">Sale_Date</label>
-            <input type="text" name="sale_date" id="sale_date" class="form-control" placeholder="Sale_Date" aria-describedby="helpId">
-            <small id="helpSale_Date" class="text-muted">Add Sale_Date</small>
+            <input type="text" name="sale_date" id="sale_date" class="form-control" placeholder="Sale_Date" aria-describedby="helpId" value="{{old('sale_date')}}">
+            <small id=" helpSale_Date" class="text-muted">Add Sale_Date</small>
         </div>
         <div class="mb-3">
             <label for="type" class="form-label text-white">Type</label>
-            <input type="text" name="type" id="type" class="form-control" placeholder="Type" aria-describedby="helpId">
-            <small id="helpType" class="text-muted">Add Type</small>
+            <input type="text" name="type" id="type" class="form-control" placeholder="Type" aria-describedby="helpId" value="{{old('type')}}">
+            <small id=" helpType" class="text-muted">Add Type</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
