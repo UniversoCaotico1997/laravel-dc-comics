@@ -14,7 +14,7 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label text-white">Description</label>
-            <textarea class="form-control" name="description" id="description" rows="4" value="{{old('title',$comic->description)}}"></textarea>
+            <textarea class="form-control" name="description" id="description" rows="4">{{old('description',$comic->description)}}</textarea>
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label text-white">Thumb Comics</label>

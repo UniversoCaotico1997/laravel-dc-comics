@@ -89,12 +89,28 @@ class ComicController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Comic   $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        return view('comics.update');
+        // dd($request->all());
+
+        //  $comic->update($request->all()); -> QUESTO METODO CREA CONFLITTO CON IL TOKEN 
+
+        $data = [
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'thumb' => $request['thumb'],
+            'price' => $request['price'],
+            'series' => $request['series'],
+            'sale_date' => $request['sale_date'],
+            'type' => $request['type']
+        ];
+
+        $comic->update($data);
+
+        return to_route('comics.index');
     }
 
     /**
