@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="container">
+    <h1 class="text-white">Update a New Comic</h1>
+    @include('partials.errors')
+
     <form action="{{route('comics.update', $comic->id)}}" method="post" class="pb-4">
+
         @csrf
         @method('PUT')
 

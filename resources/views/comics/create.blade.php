@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    <h1 class="text-white">Create a New Comic</h1>
     @include('partials.errors')
     <form action="{{route('comics.store')}}" method="post" class="pb-4">
         @csrf
